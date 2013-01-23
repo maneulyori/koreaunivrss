@@ -38,10 +38,14 @@ function fetchData(boardUrl, callback)
 function parseOku(str, callback)
 {
 	var result = str.match(/^\t(.*)facebook(.*)style(.*)<\/a>$/gm);
+	var timestamp = str.match(/^\t(.*)<span class="col3">[0-9](.*)<\/span>$/gm);
 
 	for(var i=0; i<result.length; i++)
 	{
+		result[i] = "http://oku.korea.ac.kr" + result[i].replace(/\t(.*)<a href="/gm, "").replace(/" style="(.*)">/gm, "\t").replace(/<\/a>/gm, "").replace(/&amp;/gm, "&");
+		timestamp[i] = timestamp[i].replace(/\t(.*)<span class="col3">/gm, "").replace(/<\/span>/gm, "");
 		console.log(result[i]);
+		console.log(timestamp[i]);
 	}
 }
 
