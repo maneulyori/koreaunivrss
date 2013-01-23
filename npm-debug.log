@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'buffer' ]
+2 info using npm@1.2.0
+3 info using node@v0.8.17
+4 verbose read json /home/maneulyori/package.json
+5 verbose read json /home/maneulyori/node_modules/sqlite3/package.json
+6 verbose read json /home/maneulyori/node_modules/sandbox/package.json
+7 verbose read json /home/maneulyori/node_modules/bufferjs/package.json
+8 verbose read json /home/maneulyori/node_modules/jsdom/package.json
+9 verbose read json /home/maneulyori/node_modules/node-inspector/package.json
+10 verbose read json /home/maneulyori/node_modules/iconv/package.json
+11 verbose read json /home/maneulyori/package.json
+12 verbose cache add [ 'buffer', null ]
+13 silly cache add name=undefined spec="buffer" args=["buffer",null]
+14 verbose parsed url { pathname: 'buffer', path: 'buffer', href: 'buffer' }
+15 silly lockFile e53c2ea1-buffer buffer
+16 verbose lock buffer /home/maneulyori/.npm/e53c2ea1-buffer.lock
+17 silly lockFile e53c2ea1-buffer buffer
+18 verbose addNamed [ 'buffer', '' ]
+19 verbose addNamed [ null, '' ]
+20 silly lockFile 777de10c-buffer buffer@
+21 verbose lock buffer@ /home/maneulyori/.npm/777de10c-buffer.lock
+22 silly addNameRange { name: 'buffer', range: '', hasData: false }
+23 verbose url raw buffer
+24 verbose url resolving [ 'https://registry.npmjs.org/', './buffer' ]
+25 verbose url resolved https://registry.npmjs.org/buffer
+26 info trying registry request attempt 1 at 13:21:35
+27 http GET https://registry.npmjs.org/buffer
+28 http 404 https://registry.npmjs.org/buffer
+29 silly registry.get cb [ 404,
+29 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+29 silly registry.get     date: 'Wed, 23 Jan 2013 04:20:02 GMT',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'content-length': '52',
+29 silly registry.get     'cache-control': 'must-revalidate' } ]
+30 silly lockFile 777de10c-buffer buffer@
+31 error 404 'buffer' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Linux 3.7.2-201.fc18.x86_64
+33 error command "/usr/bin/node" "/usr/bin/npm" "install" "buffer"
+34 error cwd /home/maneulyori/koreaunivrss
+35 error node -v v0.8.17
+36 error npm -v 1.2.0
+37 error code E404
+38 verbose exit [ 1, true ]

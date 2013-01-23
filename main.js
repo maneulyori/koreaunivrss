@@ -6,26 +6,43 @@ var iconv_euckr_unicode = new iconv("EUC-KR", "UTF-8//TRANSLIT//IGNORE");
 var board_oku_url = url.parse("http://oku.korea.ac.kr/admissions/bbs/bbsList.oku?bbs_type=m6.m1.m1");
 var board_main_url_ht = new Object();
 
-var boardList = {"E", "NG", "R", "J"}
+var boardList = ["E", "NG", "R", "J"];
 
 for (var i in boardList)
 {
 	board_main_url_ht[boardList[i]] = url.parse("http://www.korea.ac.kr/do/Main/NoticeList.do?type="+boardList[i]);
 }
 
-function getOku(callback)
+function fetchData(boardUrl, callback)
 {
-	http.get(board_oku_url, function (res) {
-		res.on("data", function (data) {
-			var buf = iconv_euckr_unicode.convert(data);
-			var str = buf.toString();
+	http.get(boardUrl, function (res) {
+		var isFinished = false;
+		var contentArr = new Array();
 
-			callback(str);
+		res.on("end", function() {
+			var size = 0;
+			
+			var buf = Buffer.concat(contentArr);
+
+			var unibuf = iconv_euckr_unicode.convert(buf);
+
+			callback(unibuf.toString());
+		});
+
+		res.on("data", function (data) {
+			contentArr.push(data);
 		});
 	});
 }
 
-function parseOku(callback)
+function parseOku(str, callback)
 {
-	//TODO: add parsing routine.
+	var result = str.match(/^\t(.*)facebook(.*)style(.*)<\/a>$/gm);
+
+	for(var i=0; i<result.length; i++)
+	{
+		console.log(result[i]);
+	}
 }
+
+fetchData(board_oku_url, function(str) {parseOku(str, parseOku);});
